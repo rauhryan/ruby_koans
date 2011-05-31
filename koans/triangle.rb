@@ -15,6 +15,32 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+	
+  if(a <= 0 || b <= 0 || c <= 0)
+	  raise TriangleError, "all sides must be positive"
+  end
+
+  if(a == b && a == c && b == c)
+       return   :equilateral
+  end
+
+  if(a == b && a + b <= c)
+	  raise TriangleError
+  end
+
+  if(a == c && a + c <= b)
+	  raise TriangleError
+  end
+
+  if(b == c && b + c <= a)
+	  raise TriangleError
+  end
+
+  if(a == b || a == c || b == c)
+       return   :isosceles
+  end
+  
+  :scalene
 end
 
 # Error class used in part 2.  No need to change this code.
